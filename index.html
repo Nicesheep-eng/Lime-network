@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LimeNetwork | Official Minecraft Server Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        lime: {
+                            400: '#a3e635',
+                            500: '#84cc16',
+                            neon: '#39FF14',
+                            glow: '#10B981',
+                        },
+                        dark: {
+                            base: '#070a08',
+                            surface: '#0e1511',
+                            card: '#131e18',
+                            border: '#1f3126',
+                            hover: '#192a20'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'shine': 'shine 3s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6', filter: 'drop-shadow(0 0 15px rgba(57, 255, 20, 0.6))' },
+                            '50%': { opacity: '1', filter: 'drop-shadow(0 0 25px rgba(57, 255, 20, 0.9))' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(2deg)' },
+                        },
+                        shine: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Glassmorphism & Neon Glow Effects */
+        body {
+            background-color: #070a08;
+            color: #f3f4f6;
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(14, 21, 17, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(57, 255, 20, 0.15);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(19, 30, 24, 0.85) 0%, rgba(10, 16, 12, 0.95) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(57, 255, 20, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(57, 255, 20, 0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px -5px rgba(57, 255, 20, 0.25);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 14px rgba(57, 255, 20, 0.6);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a08;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f3126;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #39FF14;
+        }
+
+        /* Key Radial Glow Backgrounds */
+        .glow-gold { background: radial-gradient(circle, rgba(234, 179, 8, 0.25) 0%, rgba(0,0,0,0) 70%); }
+        .glow-diamond { background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(0,0,0,0) 70%); }
+        .glow-iron { background: radial-gradient(circle, rgba(203, 213, 225, 0.2) 0%, rgba(0,0,0,0) 70%); }
+        .glow-bronze { background: radial-gradient(circle, rgba(217, 119, 6, 0.25) 0%, rgba(0,0,0,0) 70%); }
+        .glow-lapis { background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(0,0,0,0) 70%); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-lime-500 selection:text-black">
+
+    <!-- ANNOUNCEMENT BANNER -->
+    <div class="bg-gradient-to-r from-emerald-950 via-lime-950 to-emerald-950 border-b border-lime-500/20 py-2.5 px-4 text-center text-xs sm:text-sm font-semibold text-lime-400 flex items-center justify-center gap-3 relative z-50">
+        <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider animate-pulse">
+            LIMITED SALE
+        </span>
+        <span>🔥 SPRING SALE: GET UP TO <strong class="text-white underline decoration-lime-400">30% OFF ALL CRATE KEYS</strong>! USE CODE: <span class="bg-black/50 text-lime-300 px-2 py-0.5 rounded border border-lime-500/30 font-mono font-bold">LIME10</span> FOR EXTRA 10% OFF</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-lime-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-lime-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-cubes text-black text-2xl"></i>
+                </div>
+                <div>
+                    <span class="font-display font-black text-2xl tracking-wide bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent group-hover:text-glow transition-all">
+                        LIME<span class="text-lime-400">NETWORK</span>
+                    </span>
+                    <span class="block text-[10px] font-bold text-emerald-400 uppercase tracking-widest -mt-1">Official Webstore</span>
+                </div>
+            </a>
+
+            <!-- Navigation Bar -->
+            <nav class="hidden lg:flex items-center gap-1 bg-black/40 p-1.5 rounded-2xl border border-lime-500/10">
+                <a href="#store" class="px-4 py-2 rounded-xl text-sm font-bold text-lime-400 bg-lime-500/10 border border-lime-500/20 transition-all">
+                    <i class="fa-solid fa-store mr-2"></i>Store
+                </a>
+                <a href="#keys" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">
+                    <i class="fa-solid fa-key text-yellow-400 mr-2"></i>Crate Keys
+                </a>
+                <a href="#ranks" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">
+                    <i class="fa-solid fa-crown text-amber-400 mr-2"></i>Ranks
+                </a>
+                <a href="#coins" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">
+                    <i class="fa-solid fa-bolt text-emerald-400 mr-2"></i>Boosters
+                </a>
+                <a href="#faq" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">
+                    <i class="fa-solid fa-circle-question mr-2"></i>FAQ
+                </a>
+            </nav>
+
+            <!-- IP Copy Widget & Cart Trigger -->
+            <div class="flex items-center gap-3">
+                
+                <!-- Server IP Widget -->
+                <button onclick="copyServerIP()" class="hidden sm:flex items-center gap-3 bg-dark-card hover:bg-dark-hover border border-lime-500/20 hover:border-lime-500/50 px-3.5 py-2 rounded-xl transition-all duration-300 group cursor-pointer text-left">
+                    <div class="w-2.5 h-2.5 rounded-full bg-lime-400 animate-pulse"></div>
+                    <div>
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider leading-none flex items-center justify-between gap-2">
+                            <span>ONLINE PLAYERS</span>
+                            <span id="ipCopyStatus" class="text-lime-400 text-[10px] hidden">COPIED!</span>
+                        </div>
+                        <div class="text-xs font-bold text-white font-mono mt-0.5 group-hover:text-lime-400 transition-colors">
+                            play.limenetwork.net
+                        </div>
+                    </div>
+                    <span class="bg-lime-500/10 text-lime-400 text-xs px-2 py-1 rounded-md font-bold border border-lime-500/20 group-hover:bg-lime-500 group-hover:text-black transition-all">
+                        <i class="fa-solid fa-copy"></i>
+                    </span>
+                </button>
+
+                <!-- Cart Button -->
+                <button onclick="toggleCartModal()" class="relative bg-gradient-to-r from-lime-500 to-emerald-600 text-black font-extrabold px-4 py-2.5 rounded-xl flex items-center gap-2.5 shadow-lg shadow-lime-500/20 hover:shadow-lime-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer">
+                    <i class="fa-solid fa-basket-shopping text-lg"></i>
+                    <span class="hidden xs:inline">Cart</span>
+                    <span id="cartBadgeCount" class="bg-black text-lime-400 text-xs font-extrabold px-2 py-0.5 rounded-full border border-lime-400/40">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE RECENT PURCHASES TICKER -->
+    <section class="bg-dark-surface border-b border-lime-500/10 py-2.5 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 flex items-center">
+            <div class="flex items-center gap-2 bg-lime-500/10 text-lime-400 border border-lime-500/20 text-xs font-bold px-3 py-1 rounded-lg shrink-0 z-10 mr-4">
+                <i class="fa-solid fa-bolt animate-bounce"></i> RECENT PURCHASES
+            </div>
+            <div class="overflow-hidden w-full relative">
+                <div class="flex items-center gap-8 animate-marquee whitespace-nowrap text-xs text-gray-300 font-medium">
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-md border border-white/5">
+                        <span class="text-lime-400 font-bold">Notch</span> bought <span class="text-yellow-400 font-bold">5x Gold Key</span> <span class="text-gray-500">(2m ago)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-md border border-white/5">
+                        <span class="text-lime-400 font-bold">VapeGod99</span> bought <span class="text-sky-400 font-bold">10x Diamond Key</span> <span class="text-gray-500">(4m ago)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-md border border-white/5">
+                        <span class="text-lime-400 font-bold">Slayer_UK</span> bought <span class="text-amber-400 font-bold">LIME Rank</span> <span class="text-gray-500">(11m ago)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-md border border-white/5">
+                        <span class="text-lime-400 font-bold">EndermanPro</span> bought <span class="text-blue-400 font-bold">3x Lapis Key</span> <span class="text-gray-500">(15m ago)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-md border border-white/5">
+                        <span class="text-lime-400 font-bold">Alex_MC</span> bought <span class="text-emerald-400 font-bold">500x Store Coins</span> <span class="text-gray-500">(22m ago)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-dark-base via-dark-surface to-dark-base">
+        <!-- Background Glowing Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-lime-500/15 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-72 h-72 bg-emerald-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <!-- Live Counter Pill -->
+            <div class="inline-flex items-center gap-2.5 bg-black/60 border border-lime-500/30 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold text-lime-400 mb-8 shadow-xl">
+                <span class="w-2.5 h-2.5 rounded-full bg-lime-400 animate-ping"></span>
+                <span>342 PLAYERS ONLINE NOW</span>
+                <span class="text-gray-500">•</span>
+                <span class="text-gray-300">play.limenetwork.net</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white mb-6">
+                Elevate Your Gameplay on <br class="hidden sm:inline"/>
+                <span class="bg-gradient-to-r from-lime-400 via-emerald-300 to-lime-200 bg-clip-text text-transparent text-glow">
+                    LimeNetwork Store
+                </span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 mb-10 leading-relaxed font-normal">
+                Unlock exclusive Crate Keys, premium ranks, custom cosmetics, and game boosters. All purchases are delivered automatically within 60 seconds!
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#keys" class="bg-gradient-to-r from-lime-400 to-emerald-500 text-black font-black text-base px-8 py-4 rounded-xl shadow-xl shadow-lime-500/25 hover:shadow-lime-500/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-3">
+                    <i class="fa-solid fa-key text-lg"></i>
+                    Browse Crate Keys
+                </a>
+                <button onclick="copyServerIP()" class="glass-panel text-white hover:text-lime-400 border border-lime-500/30 hover:border-lime-500 font-bold text-base px-7 py-4 rounded-xl transition-all flex items-center gap-3 group">
+                    <i class="fa-solid fa-server text-lime-400"></i>
+                    <span>Join Server IP</span>
+                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <!-- Trust Highlights -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-10 border-t border-lime-500/10">
+                <div class="p-4 rounded-xl bg-dark-card/50 border border-lime-500/10">
+                    <div class="font-display font-bold text-2xl text-lime-400">99.9%</div>
+                    <div class="text-xs text-gray-400 font-medium">Server Uptime</div>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-card/50 border border-lime-500/10">
+                    <div class="font-display font-bold text-2xl text-lime-400">&lt; 60s</div>
+                    <div class="text-xs text-gray-400 font-medium">Instant Delivery</div>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-card/50 border border-lime-500/10">
+                    <div class="font-display font-bold text-2xl text-lime-400">24/7</div>
+                    <div class="text-xs text-gray-400 font-medium">Discord Support</div>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-card/50 border border-lime-500/10">
+                    <div class="font-display font-bold text-2xl text-lime-400">15,000+</div>
+                    <div class="text-xs text-gray-400 font-medium">Happy Players</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CRATE KEYS SECTION -->
+    <section id="keys" class="py-16 bg-dark-base relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 text-lime-400 font-bold text-xs uppercase tracking-widest bg-lime-500/10 border border-lime-500/20 px-3.5 py-1.5 rounded-full mb-3">
+                    <i class="fa-solid fa-box-open"></i> Featured Crate Keys
+                </div>
+                <h2 class="font-display font-black text-3xl sm:text-5xl text-white mb-4">
+                    Epic Crate Keys
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Open crate keys in-game at Spawn to win legendary loot, rare spawners, cash boosters, and god tier armor sets!
+                </p>
+            </div>
+
+            <!-- Keys Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="keysContainer">
+                <!-- Dynamic keys loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- RANKS CATEGORY SECTION -->
+    <section id="ranks" class="py-16 bg-dark-surface border-t border-lime-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Exclusive Perks</span>
+                    <h2 class="font-display font-black text-3xl text-white mt-1">Server VIP Ranks</h2>
+                </div>
+                <a href="#store" class="text-lime-400 hover:text-lime-300 font-bold text-sm flex items-center gap-2">
+                    View All Categories <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- VIP Rank -->
+                <div class="glass-card rounded-2xl p-6 border-amber-500/20 relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="bg-amber-500/20 text-amber-400 text-xs font-black px-2.5 py-1 rounded-md border border-amber-500/30 uppercase">VIP</span>
+                            <h3 class="font-display font-bold text-2xl text-white mt-2">VIP Rank</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-gray-400 line-through">$9.99</span>
+                            <div class="text-2xl font-black text-lime-400">$6.99</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> [VIP] Chat Badge & Colored Name</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Access to /fly in claims</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> 5x Extra Homes (/sethome)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Daily VIP Kit Perks</li>
+                    </ul>
+                    <button onclick="addRankToCart('VIP Rank', 6.99)" class="w-full bg-amber-500/20 hover:bg-amber-500 hover:text-black text-amber-400 font-bold py-3 rounded-xl border border-amber-500/30 transition-all cursor-pointer">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- LIME Rank (Featured) -->
+                <div class="glass-card rounded-2xl p-6 border-lime-500/50 relative overflow-hidden ring-2 ring-lime-500/30">
+                    <div class="absolute top-0 right-0 bg-lime-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl">MOST POPULAR</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="bg-lime-500/20 text-lime-400 text-xs font-black px-2.5 py-1 rounded-md border border-lime-500/30 uppercase">LIME</span>
+                            <h3 class="font-display font-bold text-2xl text-white mt-2">LIME Rank</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-gray-400 line-through">$19.99</span>
+                            <div class="text-2xl font-black text-lime-400">$13.99</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Glowing [LIME] Rank Prefix</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Global Server Flight (/fly)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> 15x Homes + Portable Enderchest</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> 2x Free Diamond Keys Monthly</li>
+                    </ul>
+                    <button onclick="addRankToCart('LIME Rank', 13.99)" class="w-full bg-gradient-to-r from-lime-400 to-emerald-500 text-black font-black py-3 rounded-xl shadow-lg shadow-lime-500/20 hover:scale-105 transition-all cursor-pointer">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- GOD Rank -->
+                <div class="glass-card rounded-2xl p-6 border-purple-500/20 relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="bg-purple-500/20 text-purple-400 text-xs font-black px-2.5 py-1 rounded-md border border-purple-500/30 uppercase">GOD</span>
+                            <h3 class="font-display font-bold text-2xl text-white mt-2">GOD Rank</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-gray-400 line-through">$34.99</span>
+                            <div class="text-2xl font-black text-lime-400">$24.99</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Legendary GOD Chat Title</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Access to VIP Mine & /heal /feed</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Unlimited Auction House Slots</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-lime-400"></i> Custom Particle Cosmetics Menu</li>
+                    </ul>
+                    <button onclick="addRankToCart('GOD Rank', 24.99)" class="w-full bg-purple-500/20 hover:bg-purple-500 hover:text-black text-purple-400 font-bold py-3 rounded-xl border border-purple-500/30 transition-all cursor-pointer">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section id="faq" class="py-16 bg-dark-base border-t border-lime-500/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <span class="text-lime-400 font-bold text-xs uppercase tracking-widest">Help & Information</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-white mt-1">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">How long does order delivery take?</h4>
+                        <i class="fa-solid fa-chevron-down text-lime-400 transition-transform duration-300"></i>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-3 hidden">
+                        All purchases are processed automatically via RCON within 1-3 minutes. Make sure you are logged onto <strong>play.limenetwork.net</strong> with the exact Minecraft username entered at checkout.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">What payment methods are supported?</h4>
+                        <i class="fa-solid fa-chevron-down text-lime-400 transition-transform duration-300"></i>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-3 hidden">
+                        We support PayPal, major Credit/Debit cards (Visa, Mastercard, AMEX), Paysafecard, Apple Pay, Google Pay, and Crypto (BTC/ETH).
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">What if I haven't received my item?</h4>
+                        <i class="fa-solid fa-chevron-down text-lime-400 transition-transform duration-300"></i>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-3 hidden">
+                        If your item hasn't arrived after 10 minutes, please join our official Discord server and open a ticket in the #support channel with your Transaction ID.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-lime-500/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-lg bg-lime-400 flex items-center justify-center text-black font-black">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <span class="font-display font-black text-xl text-white">LIME<span class="text-lime-400">NETWORK</span></span>
+                    </div>
+                    <p class="text-gray-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-4">
+                        LimeNetwork is a premier Minecraft survival network committed to providing custom features, active community events, and lag-free gameplay.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-dark-card border border-lime-500/20 text-gray-300 hover:text-lime-400 hover:border-lime-500 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-discord"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-dark-card border border-lime-500/20 text-gray-300 hover:text-lime-400 hover:border-lime-500 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-dark-card border border-lime-500/20 text-gray-300 hover:text-lime-400 hover:border-lime-500 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#keys" class="hover:text-lime-400 transition-colors">Crate Keys</a></li>
+                        <li><a href="#ranks" class="hover:text-lime-400 transition-colors">Server Ranks</a></li>
+                        <li><a href="#faq" class="hover:text-lime-400 transition-colors">Support FAQ</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Rules & Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Legal Disclaimer</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-3">
+                        LimeNetwork is not affiliated with Mojang Studios or Microsoft. All purchases go directly toward funding server development and maintenance.
+                    </p>
+                    <div class="text-xs text-lime-400/80 font-mono">© 2026 LimeNetwork. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REWARD PREVIEW MODAL -->
+    <div id="rewardModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-panel w-full max-w-xl rounded-2xl p-6 sm:p-8 border border-lime-500/30 relative transform scale-95 transition-transform duration-300" id="rewardModalContent">
+            
+            <button onclick="closeRewardModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div id="modalKeyIcon" class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-lg"></div>
+                <div>
+                    <span class="text-xs font-bold text-lime-400 uppercase tracking-widest">CRATE REWARDS & DROP CHANCES</span>
+                    <h3 id="modalKeyTitle" class="font-display font-black text-2xl text-white"></h3>
+                </div>
+            </div>
+
+            <div class="space-y-3 max-h-80 overflow-y-auto pr-2 mb-6" id="modalRewardsList">
+                <!-- Drop rates dynamically inserted -->
+            </div>
+
+            <button onclick="closeRewardModal()" class="w-full bg-lime-500 hover:bg-lime-400 text-black font-extrabold py-3 rounded-xl transition-all cursor-pointer">
+                Close Preview
+            </button>
+        </div>
+    </div>
+
+    <!-- CART & CHECKOUT SLIDE-OVER DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-dark-surface border-l border-lime-500/20 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cartDrawerPanel">
+            
+            <div>
+                <!-- Drawer Header -->
+                <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-basket-shopping text-lime-400 text-xl"></i>
+                        <h3 class="font-display font-black text-xl text-white">Your Shopping Cart</h3>
+                    </div>
+                    <button onclick="toggleCartModal()" class="text-gray-400 hover:text-white text-lg cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Minecraft Username Input with Crafthead Avatar Preview -->
+                <div class="mb-6">
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">
+                        Minecraft Username <span class="text-red-400">*</span>
+                    </label>
+                    <div class="flex gap-3 items-center">
+                        <div class="relative w-full">
+                            <input type="text" id="mcUsername" oninput="updateAvatarPreview()" placeholder="Enter IGN (e.g., Notch)" class="w-full bg-black/60 border border-lime-500/20 focus:border-lime-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors pl-10 font-medium">
+                            <i class="fa-solid fa-user text-gray-500 absolute left-3.5 top-3.5 text-sm"></i>
+                        </div>
+                        <img id="skinAvatar" src="https://crafthead.net/avatar/steve/48" alt="Minecraft Head" class="w-11 h-11 rounded-xl border border-lime-500/30 bg-black/40">
+                    </div>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cartItemsContainer" class="space-y-3 max-h-60 overflow-y-auto pr-1 mb-6">
+                    <!-- Dynamic cart list -->
+                </div>
+
+                <!-- Promo Coupon Code -->
+                <div class="mb-6">
+                    <div class="flex gap-2">
+                        <input type="text" id="promoInput" placeholder="Promo Code (e.g. LIME10)" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none uppercase font-mono">
+                        <button onclick="applyPromoCode()" class="bg-lime-500/20 hover:bg-lime-500 hover:text-black text-lime-400 font-bold px-4 rounded-xl text-xs border border-lime-500/30 transition-all cursor-pointer">
+                            Apply
+                        </button>
+                    </div>
+                    <div id="promoMsg" class="text-[11px] mt-1.5 hidden font-medium"></div>
+                </div>
+            </div>
+
+            <!-- Footer & Checkout Actions -->
+            <div class="pt-4 border-t border-white/10">
+                <div class="space-y-1.5 text-xs text-gray-400 mb-4">
+                    <div class="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal" class="text-white font-bold">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-lime-400 hidden" id="discountRow">
+                        <span>Discount (10%):</span>
+                        <span id="cartDiscount">-$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-base font-black text-white pt-2 border-t border-white/10">
+                        <span>Total Due:</span>
+                        <span id="cartTotal" class="text-lime-400">$0.00</span>
+                    </div>
+                </div>
+
+                <button onclick="openCheckoutModal()" class="w-full bg-gradient-to-r from-lime-400 to-emerald-500 text-black font-black py-4 rounded-xl shadow-lg shadow-lime-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Proceed to Checkout</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PAYMENT METHOD CHECKOUT MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-panel w-full max-w-lg rounded-2xl p-6 sm:p-8 border border-lime-500/30 relative">
+            
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <i class="fa-solid fa-shield-halved text-3xl text-lime-400 mb-2"></i>
+                <h3 class="font-display font-black text-2xl text-white">Select Payment Gateway</h3>
+                <p class="text-xs text-gray-400 mt-1">256-Bit SSL Encrypted Instant Checkout</p>
+            </div>
+
+            <!-- Payment Options -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <button onclick="finishOrder('PayPal')" class="p-4 rounded-xl bg-black/40 hover:bg-lime-500/10 border border-white/10 hover:border-lime-500/40 text-left transition-all flex flex-col justify-between group">
+                    <i class="fa-brands fa-paypal text-sky-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <div class="text-xs font-bold text-white">PayPal</div>
+                        <div class="text-[10px] text-gray-500">Instant Activation</div>
+                    </div>
+                </button>
+
+                <button onclick="finishOrder('Credit Card')" class="p-4 rounded-xl bg-black/40 hover:bg-lime-500/10 border border-white/10 hover:border-lime-500/40 text-left transition-all flex flex-col justify-between group">
+                    <i class="fa-solid fa-credit-card text-emerald-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <div class="text-xs font-bold text-white">Credit Card</div>
+                        <div class="text-[10px] text-gray-500">Stripe Secured</div>
+                    </div>
+                </button>
+
+                <button onclick="finishOrder('Paysafecard')" class="p-4 rounded-xl bg-black/40 hover:bg-lime-500/10 border border-white/10 hover:border-lime-500/40 text-left transition-all flex flex-col justify-between group">
+                    <i class="fa-solid fa-ticket text-amber-400 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <div class="text-xs font-bold text-white">Paysafecard</div>
+                        <div class="text-[10px] text-gray-500">Prepaid Voucher</div>
+                    </div>
+                </button>
+
+                <button onclick="finishOrder('Crypto')" class="p-4 rounded-xl bg-black/40 hover:bg-lime-500/10 border border-white/10 hover:border-lime-500/40 text-left transition-all flex flex-col justify-between group">
+                    <i class="fa-brands fa-bitcoin text-yellow-500 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <div class="text-xs font-bold text-white">Cryptocurrency</div>
+                        <div class="text-[10px] text-gray-500">BTC, ETH, LTC</div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="text-[11px] text-gray-500 text-center">
+                By purchasing, you agree to LimeNetwork's Terms of Service and Rules.
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // Key Products Database
+        const keysData = [
+            {
+                id: 'gold-key',
+                name: 'Gold Key',
+                tag: 'LEGENDARY KEY',
+                price: 3.99,
+                oldPrice: 5.99,
+                colorClass: 'amber',
+                glowClass: 'glow-gold',
+                borderClass: 'border-amber-500/30',
+                badgeBg: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+                icon: 'fa-key',
+                iconColor: 'text-amber-400',
+                rewards: [
+                    { name: 'Mythic Gold Sword (Sharpness VI, Unbreaking III)', chance: '2.5%' },
+                    { name: '1x VIP Rank Voucher (30 Days)', chance: '8.0%' },
+                    { name: '$50,000 In-Game Cash', chance: '25.0%' },
+                    { name: 'Spawner: Blaze / Zombie', chance: '20.0%' },
+                    { name: '2x Diamond Crate Key', chance: '15.0%' },
+                    { name: '64x Golden Apples', chance: '29.5%' }
+                ]
+            },
+            {
+                id: 'diamond-key',
+                name: 'Diamond Key',
+                tag: 'MYTHIC KEY',
+                price: 5.99,
+                oldPrice: 8.99,
+                colorClass: 'sky',
+                glowClass: 'glow-diamond',
+                borderClass: 'border-sky-500/40 ring-1 ring-sky-500/20',
+                badgeBg: 'bg-sky-500/20 text-sky-300 border-sky-500/30',
+                icon: 'fa-gem',
+                iconColor: 'text-sky-400',
+                featured: true,
+                rewards: [
+                    { name: 'God Netherite Armor Set (Protection IV, Unbreaking III)', chance: '5.0%' },
+                    { name: '$150,000 In-Game Cash', chance: '20.0%' },
+                    { name: 'Spawner: Iron Golem', chance: '15.0%' },
+                    { name: '1x LIME Rank Voucher (Permanent)', chance: '3.0%' },
+                    { name: 'Unbreakable Elytra Wings', chance: '12.0%' },
+                    { name: '3x Gold Keys Bundle', chance: '45.0%' }
+                ]
+            },
+            {
+                id: 'iron-key',
+                name: 'Iron Key',
+                tag: 'SLEEK KEY',
+                price: 1.99,
+                oldPrice: 2.99,
+                colorClass: 'slate',
+                glowClass: 'glow-iron',
+                borderClass: 'border-slate-500/30',
+                badgeBg: 'bg-slate-500/20 text-slate-300 border-slate-500/30',
+                icon: 'fa-key',
+                iconColor: 'text-slate-300',
+                rewards: [
+                    { name: 'Iron Tool Set (Efficiency IV)', chance: '35.0%' },
+                    { name: '$15,000 In-Game Cash', chance: '40.0%' },
+                    { name: '32x Golden Apples', chance: '25.0%' }
+                ]
+            },
+            {
+                id: 'bronze-key',
+                name: 'Bronze Key',
+                tag: 'STARTER KEY',
+                price: 0.99,
+                oldPrice: 1.49,
+                colorClass: 'orange',
+                glowClass: 'glow-bronze',
+                borderClass: 'border-amber-700/30',
+                badgeBg: 'bg-amber-800/20 text-amber-400 border-amber-700/30',
+                icon: 'fa-key',
+                iconColor: 'text-amber-600',
+                rewards: [
+                    { name: 'Starter Kit Gear', chance: '50.0%' },
+                    { name: '$5,000 In-Game Cash', chance: '30.0%' },
+                    { name: '16x Diamonds', chance: '20.0%' }
+                ]
+            },
+            {
+                id: 'lapis-key',
+                name: 'Lapis Key',
+                tag: 'ENCHANT KEY',
+                price: 3.49,
+                oldPrice: 4.99,
+                colorClass: 'blue',
+                glowClass: 'glow-lapis',
+                borderClass: 'border-blue-500/30',
+                badgeBg: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+                icon: 'fa-wand-magic-sparkles',
+                iconColor: 'text-blue-400',
+                rewards: [
+                    { name: 'Max Enchant Book (Mending + Sharpness V)', chance: '15.0%' },
+                    { name: '64x Lapis Lazuli Blocks', chance: '45.0%' },
+                    { name: '50x Experience EXP Bottles', chance: '40.0%' }
+                ]
+            }
+        ];
+
+        // Quantity Selection State
+        const keyQuantities = { 'gold-key': 1, 'diamond-key': 1, 'iron-key': 1, 'bronze-key': 1, 'lapis-key': 1 };
+        
+        // Cart State
+        let cart = [];
+        let appliedDiscount = 0;
+
+        // Render Crate Key Cards
+        function renderKeys() {
+            const container = document.getElementById('keysContainer');
+            container.innerHTML = keysData.map(key => `
+                <div class="glass-card rounded-2xl p-6 ${key.borderClass} relative flex flex-col justify-between group">
+                    ${key.featured ? '<div class="absolute -top-3 right-6 bg-gradient-to-r from-lime-400 to-emerald-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">POPULAR CHOICE</div>' : ''}
+                    
+                    <div>
+                        <!-- Header Tag / Price -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[11px] font-black px-2.5 py-1 rounded-lg border uppercase tracking-wider ${key.badgeBg}">
+                                ${key.tag}
+                            </span>
+                            <div class="text-right">
+                                <span class="text-xs text-gray-400 line-through mr-1">$${key.oldPrice.toFixed(2)}</span>
+                                <span class="text-2xl font-black text-lime-400">$${key.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+
+                        <!-- 3D Key Render Container -->
+                        <div class="relative w-full h-44 rounded-xl bg-black/40 border border-white/5 flex items-center justify-center my-4 overflow-hidden ${key.glowClass}">
+                            <div class="text-6xl ${key.iconColor} filter drop-shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 animate-float">
+                                <i class="fa-solid ${key.icon}"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="font-display font-bold text-2xl text-white mb-2">${key.name}</h3>
+                        <p class="text-xs text-gray-400 mb-6">Open in-game at Spawn for a chance to win mythic equipment and rewards.</p>
+                    </div>
+
+                    <div>
+                        <!-- Quantity Selector Buttons -->
+                        <div class="flex items-center justify-between bg-black/40 p-1.5 rounded-xl border border-white/5 mb-4">
+                            <span class="text-xs font-bold text-gray-400 pl-2">Bundle Qty:</span>
+                            <div class="flex items-center gap-1">
+                                <button onclick="changeQty('${key.id}', 1)" class="qty-btn-${key.id} px-2.5 py-1 text-xs font-bold bg-lime-500 text-black rounded-lg">x1</button>
+                                <button onclick="changeQty('${key.id}', 5)" class="qty-btn-${key.id} px-2.5 py-1 text-xs font-bold text-gray-400 hover:text-white rounded-lg">x5</button>
+                                <button onclick="changeQty('${key.id}', 10)" class="qty-btn-${key.id} px-2.5 py-1 text-xs font-bold text-gray-400 hover:text-white rounded-lg">x10</button>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openRewardModal('${key.id}')" class="bg-white/5 hover:bg-white/10 text-gray-300 font-bold text-xs py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-eye text-lime-400"></i> Rewards
+                            </button>
+                            <button onclick="addToCart('${key.id}')" class="bg-gradient-to-r from-lime-400 to-emerald-500 hover:from-lime-300 hover:to-emerald-400 text-black font-black text-xs py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function changeQty(keyId, qty) {
+            keyQuantities[keyId] = qty;
+            const buttons = document.querySelectorAll(`.qty-btn-${keyId}`);
+            buttons.forEach(btn => {
+                if (btn.innerText === `x${qty}`) {
+                    btn.className = `qty-btn-${keyId} px-2.5 py-1 text-xs font-bold bg-lime-500 text-black rounded-lg`;
+                } else {
+                    btn.className = `qty-btn-${keyId} px-2.5 py-1 text-xs font-bold text-gray-400 hover:text-white rounded-lg`;
+                }
+            });
+        }
+
+        // Cart Functions
+        function addToCart(keyId) {
+            const key = keysData.find(k => k.id === keyId);
+            const qty = keyQuantities[keyId] || 1;
+            
+            const existing = cart.find(item => item.id === keyId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ id: key.id, name: key.name, price: key.price, qty: qty, icon: key.icon, color: key.iconColor });
+            }
+
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        function addRankToCart(rankName, price) {
+            const existing = cart.find(item => item.name === rankName);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id: rankName.toLowerCase().replace(' ', '-'), name: rankName, price: price, qty: 1, icon: 'fa-crown', color: 'text-amber-400' });
+            }
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const totalBadge = document.getElementById('cartBadgeCount');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const discountEl = document.getElementById('cartDiscount');
+            const totalEl = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            totalBadge.innerText = totalItems;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 opacity-30"></i>
+                        <p class="text-sm">Your shopping cart is currently empty.</p>
+                    </div>
+                `;
+                subtotalEl.innerText = '$0.00';
+                totalEl.innerText = '$0.00';
+                return;
+            }
+
+            let subtotal = 0;
+            container.innerHTML = cart.map((item, idx) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                return `
+                    <div class="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-white/5">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid ${item.icon} ${item.color} text-lg"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xs">${item.name}</h4>
+                                <span class="text-[11px] text-gray-400">${item.qty}x $${item.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-lime-400 text-xs">$${itemTotal.toFixed(2)}</span>
+                            <button onclick="removeFromCart(${idx})" class="text-gray-500 hover:text-red-400 text-xs cursor-pointer">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const discountVal = subtotal * appliedDiscount;
+            const finalTotal = subtotal - discountVal;
+
+            subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+            discountEl.innerText = `-$${discountVal.toFixed(2)}`;
+            totalEl.innerText = `$${finalTotal.toFixed(2)}`;
+        }
+
+        function applyPromoCode() {
+            const input = document.getElementById('promoInput').value.trim().toUpperCase();
+            const msg = document.getElementById('promoMsg');
+            const discountRow = document.getElementById('discountRow');
+
+            if (input === 'LIME10') {
+                appliedDiscount = 0.10;
+                msg.innerText = '✓ Promo code LIME10 applied (10% OFF)';
+                msg.className = 'text-[11px] mt-1.5 font-bold text-lime-400 block';
+                discountRow.classList.remove('hidden');
+                updateCartUI();
+            } else {
+                msg.innerText = '✕ Invalid promo coupon code.';
+                msg.className = 'text-[11px] mt-1.5 font-bold text-red-400 block';
+            }
+        }
+
+        // Live Minecraft Avatar Generator
+        function updateAvatarPreview() {
+            const username = document.getElementById('mcUsername').value.trim() || 'steve';
+            const img = document.getElementById('skinAvatar');
+            img.src = `https://crafthead.net/avatar/${username}/48`;
+        }
+
+        // Cart Drawer Functions
+        function toggleCartModal(show = null) {
+            const drawer = document.getElementById('cartDrawer');
+            const panel = document.getElementById('cartDrawerPanel');
+            const isVisible = drawer.classList.contains('opacity-100');
+
+            if (show === true || (!isVisible && show !== false)) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                drawer.classList.add('opacity-100');
+                panel.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('opacity-100');
+                panel.classList.add('translate-x-full');
+            }
+        }
+
+        // Checkout Modals
+        function openCheckoutModal() {
+            const username = document.getElementById('mcUsername').value.trim();
+            if (!username) {
+                alert('Please enter your Minecraft username before checking out!');
+                return;
+            }
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function finishOrder(gateway) {
+            const username = document.getElementById('mcUsername').value.trim();
+            closeCheckoutModal();
+            toggleCartModal(false);
+            
+            // Simulating checkout success message box
+            const totalText = document.getElementById('cartTotal').innerText;
+            alert(`Redirecting to ${gateway} Gateway...\n\nPlayer: ${username}\nTotal: ${totalText}\n\nYour items will be delivered in-game automatically within 60 seconds!`);
+            
+            cart = [];
+            updateCartUI();
+        }
+
+        // Reward Modal Functions
+        function openRewardModal(keyId) {
+            const key = keysData.find(k => k.id === keyId);
+            const modal = document.getElementById('rewardModal');
+            const modalContent = document.getElementById('rewardModalContent');
+            
+            document.getElementById('modalKeyTitle').innerText = key.name;
+            const iconContainer = document.getElementById('modalKeyIcon');
+            iconContainer.className = `w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-lg ${key.badgeBg}`;
+            iconContainer.innerHTML = `<i class="fa-solid ${key.icon} ${key.iconColor}"></i>`;
+
+            const list = document.getElementById('modalRewardsList');
+            list.innerHTML = key.rewards.map(r => `
+                <div class="flex items-center justify-between p-3 rounded-xl bg-black/40 border border-white/5">
+                    <span class="text-xs font-medium text-gray-200">${r.name}</span>
+                    <span class="text-xs font-bold text-lime-400 bg-lime-500/10 px-2.5 py-1 rounded-lg border border-lime-500/20">${r.chance}</span>
+                </div>
+            `).join('');
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+
+        function closeRewardModal() {
+            const modal = document.getElementById('rewardModal');
+            const modalContent = document.getElementById('rewardModalContent');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const text = element.querySelector('p');
+            const icon = element.querySelector('i');
+            text.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Copy Server IP
+        function copyServerIP() {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = 'play.limenetwork.net';
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            const status = document.getElementById('ipCopyStatus');
+            status.classList.remove('hidden');
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 2000);
+        }
+
+        // Initialize Webstore
+        window.onload = function() {
+            renderKeys();
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>
